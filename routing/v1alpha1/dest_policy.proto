@@ -207,6 +207,12 @@ message CircuitBreaker {
     // Maximum number of retries that can be outstanding to all hosts in a
     // cluster at a given time. Defaults to 3.
     int32 http_max_retries = 9;
+
+    // Load balancing panic threshold.  The load balancing pool will normally include hosts
+    // known to be healthy, if the percentage of healthy hosts drops below this panic threshold
+    // the proxy will disregard the health status and balance across all hosts.  The default
+    // panic threshold is 50%.
+    int32 http_panic_threshold_percent = 10;
   }
   oneof cb_policy {
     SimpleCircuitBreakerPolicy simple_cb = 1;
