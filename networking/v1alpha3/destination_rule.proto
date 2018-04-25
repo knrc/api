@@ -355,7 +355,7 @@ message OutlierDetection {
     // known to be healthy, if the percentage of healthy hosts drops below this panic threshold
     // the proxy will disregard the health status and balance across all hosts.  The default
     // panic threshold is 50%.
-    int32 panic_threshold_percent = 5;
+    int32 healthy_panic_threshold_percent = 5;
   };
 
   // Settings for HTTP1.1/HTTP2/GRPC connections.
